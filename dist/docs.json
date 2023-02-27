@@ -1,0 +1,295 @@
+{
+  "api": {
+    "name": "CallKitVoipPlugin",
+    "slug": "callkitvoipplugin",
+    "docs": "",
+    "tags": [],
+    "methods": [
+      {
+        "name": "register",
+        "signature": "() => Promise<void>",
+        "parameters": [],
+        "returns": "Promise<void>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "register"
+      },
+      {
+        "name": "addListener",
+        "signature": "(eventName: 'registration', listenerFunc: (token: CallToken) => void) => Promise<PluginListenerHandle> & PluginListenerHandle",
+        "parameters": [
+          {
+            "name": "eventName",
+            "docs": "",
+            "type": "'registration'"
+          },
+          {
+            "name": "listenerFunc",
+            "docs": "",
+            "type": "(token: CallToken) => void"
+          }
+        ],
+        "returns": "Promise<PluginListenerHandle> & PluginListenerHandle",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [
+          "PluginListenerHandle",
+          "CallToken"
+        ],
+        "slug": "addlistenerregistration"
+      },
+      {
+        "name": "addListener",
+        "signature": "(eventName: 'callAnswered', listenerFunc: (callData: CallData) => void) => Promise<PluginListenerHandle> & PluginListenerHandle",
+        "parameters": [
+          {
+            "name": "eventName",
+            "docs": "",
+            "type": "'callAnswered'"
+          },
+          {
+            "name": "listenerFunc",
+            "docs": "",
+            "type": "(callData: CallData) => void"
+          }
+        ],
+        "returns": "Promise<PluginListenerHandle> & PluginListenerHandle",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [
+          "PluginListenerHandle",
+          "CallData"
+        ],
+        "slug": "addlistenercallanswered"
+      },
+      {
+        "name": "addListener",
+        "signature": "(eventName: 'callStarted', listenerFunc: (callData: CallData) => void) => Promise<PluginListenerHandle> & PluginListenerHandle",
+        "parameters": [
+          {
+            "name": "eventName",
+            "docs": "",
+            "type": "'callStarted'"
+          },
+          {
+            "name": "listenerFunc",
+            "docs": "",
+            "type": "(callData: CallData) => void"
+          }
+        ],
+        "returns": "Promise<PluginListenerHandle> & PluginListenerHandle",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [
+          "PluginListenerHandle",
+          "CallData"
+        ],
+        "slug": "addlistenercallstarted"
+      },
+      {
+        "name": "addListener",
+        "signature": "(eventName: 'callEnded', listenerFunc: (callData: CallData) => void) => Promise<PluginListenerHandle> & PluginListenerHandle",
+        "parameters": [
+          {
+            "name": "eventName",
+            "docs": "",
+            "type": "'callEnded'"
+          },
+          {
+            "name": "listenerFunc",
+            "docs": "",
+            "type": "(callData: CallData) => void"
+          }
+        ],
+        "returns": "Promise<PluginListenerHandle> & PluginListenerHandle",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [
+          "PluginListenerHandle",
+          "CallData"
+        ],
+        "slug": "addlistenercallended"
+      }
+    ],
+    "properties": []
+  },
+  "interfaces": [
+    {
+      "name": "PluginListenerHandle",
+      "slug": "pluginlistenerhandle",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "remove",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "() => Promise<void>"
+        }
+      ]
+    },
+    {
+      "name": "CallToken",
+      "slug": "calltoken",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "value",
+          "tags": [],
+          "docs": "VOIP Token",
+          "complexTypes": [],
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "CallData",
+      "slug": "calldata",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "id",
+          "tags": [],
+          "docs": "Call ID",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "media",
+          "tags": [],
+          "docs": "Call Type",
+          "complexTypes": [
+            "CallType"
+          ],
+          "type": "CallType"
+        },
+        {
+          "name": "name",
+          "tags": [],
+          "docs": "Call Display name",
+          "complexTypes": [],
+          "type": "string | undefined"
+        },
+        {
+          "name": "duration",
+          "tags": [],
+          "docs": "Call duration",
+          "complexTypes": [],
+          "type": "string | undefined"
+        }
+      ]
+    },
+    {
+      "name": "MessageCallData",
+      "slug": "messagecalldata",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "type",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "'message' | undefined"
+        },
+        {
+          "name": "callbackId",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "pluginId",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "methodName",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "options",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "any"
+        }
+      ]
+    },
+    {
+      "name": "ErrorCallData",
+      "slug": "errorcalldata",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "type",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "'js.error'"
+        },
+        {
+          "name": "error",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "{ message: string; url: string; line: number; col: number; errorObject: string; }"
+        }
+      ]
+    }
+  ],
+  "enums": [],
+  "typeAliases": [
+    {
+      "name": "CallType",
+      "slug": "calltype",
+      "docs": "",
+      "types": [
+        {
+          "text": "'video'",
+          "complexTypes": []
+        },
+        {
+          "text": "'audio'",
+          "complexTypes": []
+        }
+      ]
+    },
+    {
+      "name": "CallData",
+      "slug": "calldata",
+      "docs": "",
+      "types": [
+        {
+          "text": "MessageCallData",
+          "complexTypes": [
+            "MessageCallData"
+          ]
+        },
+        {
+          "text": "ErrorCallData",
+          "complexTypes": [
+            "ErrorCallData"
+          ]
+        }
+      ]
+    }
+  ],
+  "pluginConfigs": []
+}
